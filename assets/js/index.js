@@ -1,37 +1,35 @@
+// Атрибути
 
-const btn = document.getElementById('clickBtn');
+const p1 = document.querySelector('#p1');
 
-const clickHandler = function(event) {
-    console.log('Button war clicked');
+console.dir(p1.title);
+console.dir(p1.id);
+
+p1.title = 'New title';
+
+// p1.hidden = true;
+
+p1.style.color = 'red';
+p1.style.backgroundColor = 'orange';
+
+//-------------------------------
+const p2 = document.getElementById('p2');
+p2.setAttribute('title', 'Title of p2');
+p2.setAttribute('style', 'font-size: 80px; color: green;')
+// p2.setAttribute('hidden', 'hidden');
+
+p2.textContent = 'New text';
+
+
+// const bodyEl = document.querySelector('body').style.backgroundColor = 'green';
+
+const imgAddres = {
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT74p0-GFNquBzzGLN9SazH22Wrus46aPPqYQ&s', 
+    alt: 'Cat',
 }
 
-btn.onclick = clickHandler;
+const imgEl = document.querySelector('img');
+imgEl.src = imgAddres.src;
+imgAddres.alt = imgAddres.alt;
 
-btn.onclick = null;
-
-//------------------------------------------
-const logBtn = document.getElementById('loginBtn');
-
-function log(e) {
-    alert('log in progress');
-}
-
-logBtn.addEventListener('click', log);
-
-logBtn.removeEventListener('click', log);
-
-
-function logMouse(event) {
-    console.log('Click me');
-}
-
-logBtn.addEventListener('mousemove', logMouse)
-
-
-const user = document.getElementById('userBtn');
-
-function userLog(event) {
-    console.log('Hello World!');
-}
-
-user.onclick = userLog;
+imgEl.setAttribute('width', '150');
