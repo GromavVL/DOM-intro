@@ -1,26 +1,37 @@
-console.log(document);
 
-console.log(document.body);
+const btn = document.getElementById('clickBtn');
 
-console.log(document.head);
+const clickHandler = function(event) {
+    console.log('Button war clicked');
+}
 
-const elements = document.getElementById('root');
-console.log(elements);
-console.dir(elements);
+btn.onclick = clickHandler;
 
-const divEl = document.getElementsByTagName('div');
-console.log('divEl :>> ', divEl);
+btn.onclick = null;
 
-const divroot2 = divEl[0];
+//------------------------------------------
+const logBtn = document.getElementById('loginBtn');
 
-const divElClass = document.getElementsByClassName('content');
-console.log(divElClass);
+function log(e) {
+    alert('log in progress');
+}
 
-const rootEl3 = document.querySelector('#root');
-console.log('rootEl3 :>> ', rootEl3);
+logBtn.addEventListener('click', log);
 
-const divElemant = document.querySelectorAll('div');
-console.log('divElemant :>> ', divElemant);
+logBtn.removeEventListener('click', log);
 
-const divEl5 = document.querySelector('.content');
-console.log('divEl5 :>> ', divEl5);
+
+function logMouse(event) {
+    console.log('Click me');
+}
+
+logBtn.addEventListener('mousemove', logMouse)
+
+
+const user = document.getElementById('userBtn');
+
+function userLog(event) {
+    console.log('Hello World!');
+}
+
+user.onclick = userLog;
