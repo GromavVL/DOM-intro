@@ -16,3 +16,29 @@ const slides = [
         alt: 'landscape4',
     },
 ];
+
+let currentSlideIndex = 0;
+
+const slideImg = document.getElementById('sliderImg');
+slideImg.src = slides[0].src;
+slideImg.alt = slides[0].alt;
+
+const [prevBtn, nextBtn] = document.querySelectorAll('.navBtn');
+
+function nextSliderHandler(event) {
+    currentSlideIndex = [currentSlideIndex + 1] % slides.length;
+    update(currentSlideIndex);
+}
+
+function prevSliderHandler() {
+    currentSlideIndex = [currentSlideIndex - 1 + slides.length] % slides.length;
+    update(currentSlideIndex);
+}
+
+nextBtn.addEventListener('click', nextSliderHandler);
+prevBtn.addEventListener('click', prevSliderHandler);
+
+function update(currentSlideIndex) {
+    slideImg.src = slides[currentSlideIndex].src;
+    slideImg.alt = slides[currentSlideIndex].alt;
+}
