@@ -26,12 +26,12 @@ slideImg.alt = slides[0].alt;
 const [prevBtn, nextBtn] = document.querySelectorAll('.navBtn');
 
 function nextSliderHandler(event) {
-    currentSlideIndex = [currentSlideIndex + 1] % slides.length;
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
     update(currentSlideIndex);
 }
 
 function prevSliderHandler() {
-    currentSlideIndex = [currentSlideIndex - 1 + slides.length] % slides.length;
+    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
     update(currentSlideIndex);
 }
 
