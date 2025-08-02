@@ -1,6 +1,5 @@
-
-
-.sliderWrapper {
+/* --------------slider---------- */
+/* .sliderWrapper {
     width: 600px;
     height: 200px;
     margin: 100px auto 0;
@@ -35,4 +34,17 @@
 
 .nextBtn {
     right: 15px;
+} */
+/* ---------------------------------- */
+
+/* ----------------counter--------------- */
+
+body {
+    display: flex;
+    min-height: 100vh;
+    font-size: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
 }
