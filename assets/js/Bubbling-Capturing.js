@@ -1,28 +1,24 @@
-
 const body = document.body;
 const section = document.querySelector('section');
 const button = document.querySelector('button');
 
-// function btnClickHendler(event) {
-//     console.log('event :>> ', event);
-//     this.style.backgroundColor = 'red';
-// }
-
-// function f(e) {
-//     this.style.backgroundColor = 'green';
-// }
-
-// button.addEventListener('click', f);
-// section.addEventListener('click', btnClickHendler);
-
 let clickCount = 0;
 
-body.addEventListener('click', () => {
+// Обробник кліку по body
+const handleBodyClick = () => {
     clickCount++;
-    console.log('clickCount :>> ', clickCount);
-})
+    console.log('clickCount:', clickCount);
+};
 
+// Обробник кліку по кнопці (зупиняє спливання)
+const handleButtonClick = (event) => {
+    event.stopPropagation();
+};
 
-button.addEventListener('click', e => {
-    e.stopPropagation();
-})
+// Обробник кліку по секції
+const handleSectionClick = function () {
+    this.style.backgroundColor = 'red';
+};
+
+body.addEventListener('click', handleBodyClick);
+button.addEventListener('click', handleButtonClick);
