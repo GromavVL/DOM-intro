@@ -1,3 +1,10 @@
+/* ---=--------Общие стили--------- */
+
+* {
+    box-sizing: border-box;
+}
+
+
 /* --------------slider---------- */
 /* .sliderWrapper {
     width: 600px;
@@ -61,7 +68,29 @@ body {
     align-items: center;
 }
 
+/*
 section {
     border: 3px solid green;
     padding: 30px;
+} */
+
+/*-------------Bubbling-Capturing-----------*/
+
+.div {
+    border: 3px solid green;
+    padding: 30px;
+}
+
+.div2 {
+    background-color: gray;
+}
+
+.div3 {
+    border: 1px solid orange;
+    margin-bottom: 30px;
+}
+
+
+h1 {
+    border: 1px solid green;
 }
