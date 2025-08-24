@@ -1,18 +1,10 @@
-const div = document.querySelector('.div');
-
-div.addEventListener('click', function() {
-    // this.classList.add('div2');
-    // this.classList.remove('div');
-    this.classList.toggle('div2');
-});
-
-// div.className = 'div div2';
-
-div.style.color = 'red';
+const burgerBtn = document.querySelector('.burgerMenuBtn');
+const burgerMenu = document.querySelector('.burgerMenuContainer')
 
 
-const h1 = document.querySelector('h1');
+function burgerClick(event) {
+    burgerMenu.classList.toggle('burgerMenuContainerHide');
+    burgerMenu.classList.toggle('burgerMenuContainerActive');
+}
 
-h1.addEventListener('click', function() {
-    this.classList.toggle('div3');
-})
+burgerBtn.addEventListener('click', burgerClick);
