@@ -12,35 +12,46 @@ const userCard = document.createElement('article');
 userCard.classList.add('userCard');
 document.body.append(userCard);
 
-const userImg = document.createElement('img');
-userImg.src = user.photoSrc;
-userImg.alt = `${user.firstName}, ${user.lastName}`;
-userImg.classList.add('userImg');
-userCard.append(userImg);
-
-const userDiv = document.createElement('div');
-userDiv.classList.add('userInfo');
-userCard.append(userDiv);
-
-const fullName = document.createElement('p');
-fullName.classList.add('userName');
-fullName.textContent = `${user.firstName} ${user.lastName}`;
-userDiv.append(fullName)
-
-const userAge = document.createElement('span');
-userAge.classList.add('userAge');
-userAge.textContent = user.age;
-userDiv.append(userAge);
-
-const icon = document.createElement('i');
-icon.classList.add('fa-solid');
-icon.classList.add('fa-trash');
-icon.classList.add('trash');
-userCard.append(icon);
+const userImg = createImg(user);
+const userDiv = createUserInfo(user);
+const icon = createTrashIcon();
+userCard.append(icon, userImg, userDiv);
 
 function deleteUser(e) {
     e.target.closest('.userCard').remove();
 }
-
 icon.onclick = deleteUser;
-userDiv.append(icon);
+userCard.append(icon)
+
+
+function createTrashIcon() {
+    const icon = document.createElement('i');
+    icon.classList.add('fa-solid');
+    icon.classList.add('fa-trash');
+    icon.classList.add('trash');
+    return icon;
+}
+
+function createUserInfo({ firstName, lastName, age }) {
+    const userDiv = document.createElement('div');
+    userDiv.classList.add('userInfo');
+
+    const fullName = document.createElement('p');
+    fullName.classList.add('userName');
+    fullName.textContent = `${firstName} ${lastName}`;
+    userDiv.append(fullName)
+
+    const userAge = document.createElement('span');
+    userAge.classList.add('userAge');
+    userAge.textContent = age;
+    userDiv.append(userAge);
+    return userDiv;
+}
+
+function createImg({ photoSrc, firstName, lastName }) {
+    const userImg = document.createElement('img');
+    userImg.src = photoSrc;
+    userImg.alt = `${firstName}, ${lastName}`;
+    userImg.classList.add('userImg');
+    return userImg;
+}
