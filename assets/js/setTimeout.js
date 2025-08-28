@@ -34,32 +34,36 @@
 // setInterval(deleteBtn, 5000);
 
 // btn.addEventListener('click', () => {setInterval(newColorbtn, 2000)});
-
 const timeEl = document.querySelector('.time');
 const [startBtn, stopBtn, resetBtn] = document.querySelectorAll('.btn-container > button');
 
-let time = 0;
+let time = new Date(0);
+
 let setIntervald = null;
 
 function startBtnHendler() {
     function tick() {
-        time++;
+        time.setMilliseconds(time.getMilliseconds() + 1); // вместо time++
         updateTime(time);
     }
-    if(!setIntervald) {setIntervald = setInterval(tick, 1)}
-    
+    if (!setIntervald) {
+        setIntervald = setInterval(tick, 1);
+    }
 }
+
 function stopBtnHendler() {
     clearInterval(setIntervald);
     setIntervald = null;
 }
+
 function resetBtnHendler() {
-    time = 0;
+    time = new Date(0); // вместо time = 0
     updateTime(time);
 }
 
 function updateTime(time) {
-    timeEl.textContent = time;
+    timeEl.textContent = `${time.getMinutes()}:${time.getSeconds()}:${time.getMilliseconds()}`;
+    // исправил методы
 }
 
 startBtn.onclick = startBtnHendler;
